@@ -16,9 +16,15 @@ with open('2023/01/input.txt') as f:
         #print('input: ' + line + ' first: ' + xx + ' last: ' + x + ' result: ' + xx + x)
         #print(int(xx + x))
 
-print('Part 1:' + str(total))
+print('Part 1: ' + str(total))
 
 #Part 2: First and last digit but some are written out in text, eg one, two
+def detect_numbers(input):
+    for c in input:
+        if ord(c) >= 48 and ord(c) <= 57:
+            return int(c)
+    return 0
+
 def replace_numbers(input):
     input = input.replace('one', '1')
     input = input.replace('two', '2')
@@ -31,34 +37,34 @@ def replace_numbers(input):
     input = input.replace('nine', '9')
     return input
 
-def replace_numbers_rev(input):
-    input = input.replace('eno', '1')
-    input = input.replace('owt', '2')
-    input = input.replace('eerht', '3')
-    input = input.replace('ruof', '4')
-    input = input.replace('evif', '5')
-    input = input.replace('xis', '6')
-    input = input.replace('neves', '7')
-    input = input.replace('thgie', '8')
-    input = input.replace('enin', '9')
-    return input
-
 total = 0
 with open('2023/01/input.txt') as f:
     lines = f.readlines()
     for line in lines:
-        orig = line
-        for c in replace_numbers(line):
-            if ord(c) >= 48 and ord(c) <= 57:
-                xx = c
+
+        if line[:18] == 'drkdbmv4zbjbznsqtj':
+            pass
+
+        string = ''
+        xx = 0
+        x = 0
+        for c in line:
+            string = string + c
+            string = replace_numbers(string)
+            xx =  detect_numbers(string)
+            if xx > 0:
                 break
-        rev = line[::-1]
-        for c in replace_numbers_rev(rev):
-            if ord(c) >= 48 and ord(c) <= 57:
-                x = c
-                break
-        total = total + int(xx + x)
-        print('input: ' + orig + ' first: ' + xx + ' last: ' + x + ' result: ' + xx + x)
+
+        string = ''
+        for c in line[::-1]:
+            string = c + string
+            string = replace_numbers(string)
+            x =  detect_numbers(string)
+            if x > 0:
+                break               
+
+        total = total + int(10 * xx + x)
+        #print('input: ' + line + ' first: ' + str(xx) + ' last: ' + str(x) + ' result: ' + str(10 * xx + x))
         #print(int(xx + x))
 
 print('Part 2: ' + str(total))
