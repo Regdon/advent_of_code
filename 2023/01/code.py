@@ -1,3 +1,7 @@
+#Advent of Code 2023 Day 1
+#Part 1: What is the first and last numerical digit in each line. Combine into a two digit number and add the results
+#Part 2: Same as above, but also include digits written out in text, eg 'one'
+
 #Part 1: First and last numerical digit
 
 total = 0

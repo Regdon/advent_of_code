@@ -1,3 +1,8 @@
+#Advent of Code 2023 Day 2
+#Part 1: Which games are possible if there are 12 red, 13 green and 14 blue balls. Add up possible game ids.
+#Park 2: What is the minimum red, green and blue to make each game possible? Multiple r, g and b for each row and add the results.
+
+
 class game:
     def __init__(self, data):
         #Extract game id

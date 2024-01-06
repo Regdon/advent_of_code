@@ -1,3 +1,7 @@
+#Advent of Code 2023 Day 3
+#Part 1: Add up numbers which are next to a symbol (including diagonally). '.' doesn't count
+#Part 2: When two numbers are next to a '*' symbol, multiple them together and add the results
+
 symbols = '*#$+/%@=&-'
 symbolsTwo = '*'
 
