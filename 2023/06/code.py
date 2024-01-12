@@ -1,0 +1,46 @@
+#Advent of Codr 2023 Day 6
+#Part 1:
+#Part 2:
+
+times = []
+distances = []
+totalWays = []
+
+with open('2023/06/input.txt') as f:
+    lines = f.read().splitlines()
+
+    #First line, read the times in
+    tt = lines[0].split(" ")
+    for t in tt:
+        if t.isdigit():
+            times.append(int(t))
+
+    #Second line, read the distances in
+    dd = lines[1].split(" ")
+    for d in dd:
+        if d.isdigit():
+            distances.append(int(d))
+
+#Find possible victories
+n = len(times)
+i = 0
+while i < n:
+    time = times[i]
+    target = distances[i]
+    buttonTime = 1
+    ways = 0
+
+    while buttonTime < time:
+        result = buttonTime * (time - buttonTime)
+        if result > target:
+            ways += 1
+        buttonTime += 1
+
+    totalWays.append(ways)
+    print('iteration:', i, 'time:', time, 'Target Distance:', target, 'Possible Ways:', ways)
+    i += 1
+
+answer = 1
+for x in totalWays:
+    answer = answer * x
+print('Part 1 Answer:', answer)
