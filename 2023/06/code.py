@@ -2,6 +2,8 @@
 #Part 1:
 #Part 2:
 
+import math
+
 times = []
 distances = []
 totalWays = []
@@ -44,3 +46,27 @@ answer = 1
 for x in totalWays:
     answer = answer * x
 print('Part 1 Answer:', answer)
+
+#Part 2. Big numbers!
+s = ''
+for time in times:
+    s += str(time)
+raceTime = int(s)
+s = ''
+for distance in distances:
+    s += str(distance)
+targetDistance = int(s)
+
+#quadratic
+a = -1
+b = raceTime
+c = 0-targetDistance
+
+root1 = (-b + math.sqrt(b*b - 4*a*c)) / (2 * a)
+root2 = (-b - math.sqrt(b*b - 4*a*c)) / (2 * a)
+
+root1 = math.ceil(root1)
+root2 = math.floor(root2)
+
+poss = root2 - root1 + 1
+print('Part 2 Answer:', poss)
