@@ -1,6 +1,7 @@
-#Advent of Codr 2023 Day 6
-#Part 1:
-#Part 2:
+#Advent of Code 2023 Day 6
+#Part 1: For each race, how many combinations beat the distance?
+#        Travel 1m/s for each 1s spent not moving at the start of the race
+#Part 2: Instead of individual races, concat numbers together and work out combinations
 
 import math
 
@@ -58,6 +59,8 @@ for distance in distances:
 targetDistance = int(s)
 
 #quadratic
+#General equation: y = axx + bx + c
+#where a = -1, b = total race time, c = - target distance
 a = -1
 b = raceTime
 c = 0-targetDistance
